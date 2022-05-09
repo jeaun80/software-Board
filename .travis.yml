@@ -7,12 +7,15 @@ branches:
 
 
 cache:
-  directories:
+  directories
+  - '$HOME/.m2/repository'
+  - '$HOME/.gradle'
 
 
-script: "./gradlew build"
-
+script: "./gradlew clean build"
 notifications:
   email:
     recipients:
       -"kims1706@naver.com"
+
+    
