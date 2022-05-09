@@ -1,15 +1,9 @@
 language: java
 jdk:
-  -openjdk14.0.2
+  -openjdk14
 branches:
   only:
     - main
-
-   
-cache:
-  directories
-  - '$HOME/.m2/repository'
-  - '$HOME/.gradle'
 
 
 script: "./gradlew clean build"
