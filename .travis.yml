@@ -1,16 +1,30 @@
-language: java
-jdk:
-  -openjdk14
+
 branches:
   only:
     - main
 
+jobs:
+  include:
+    - language: java
+      jdk: openjdk14
+      cache:
+        directories:
+          - $HOME/.gradle/caches/
+          - $HOME/.gradle/wrapper/
+      before_install:
+        - chmod +x gradlew
+      script:
+        - ./gradlew clean build
+    - language: node_js
+      node_js: 18
+      cache: npm
+      before_script:
+        - cd frontend
+        - npm install
+      script:
+        - npm start
 
-before_install:
-  - chmod +x gradlew
-script: "./gradlew build"
 notifications:
   email:
     recipients:
       -"kims1706@naver.com"
-
