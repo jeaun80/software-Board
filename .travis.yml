@@ -25,9 +25,9 @@
             - npm run build
 
       before_deploy:
-        - zip -r project-jikji *
+        - zip -r software-board *
         - mkdir -p deploy
-        - mv project-jikji.zip deploy/project-jikji.zip
+        - mv software-board.zip deploy/software-board.zip
 
       deploy:
         - provider: s3
