@@ -41,3 +41,8 @@
           wait-until-deployed: true
           on:
             branch: main
+
+    notifications:
+      email:
+        recipients:
+          - kims1706@naver.com
