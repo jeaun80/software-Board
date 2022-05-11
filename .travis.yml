@@ -2,46 +2,46 @@ language: java
 
 branches:
   only:
-    - main
+  - main
 
-    jobs:
-      include:
-        - language: java
-          jdk: openjdk14
-          cache:
-            directories:
-              - $HOME/.gradle/caches/
-              - $HOME/.gradle/wrapper/
-          install:
-            - chmod +x gradlew
-          script:
-            - ./gradlew clean build
-        - language: node_js
-          node_js: 14
-          cache: npm
-          before_script:
-            - cd frontend
-            - npm install
-          script:
-            - npm run build
+jobs:
+  include:
+    - language: java
+      jdk: openjdk14
+      cache:
+        directories:
+          - $HOME/.gradle/caches/
+          - $HOME/.gradle/wrapper/
+      install:
+        - chmod +x gradlew
+      script:
+        - ./gradlew clean build
+    - language: node_js
+      node_js: 14
+      cache: npm
+      before_script:
+        - cd frontend
+        - npm install
+      script:
+        - npm run build
 
-      before_deploy:
-        - zip -r software-board *
-        - mkdir -p deploy
-        - mv software-board.zip deploy/software-board.zip
+  before_deploy:
+    - zip -r software-board *
+    - mkdir -p deploy
+    - mv software-board.zip deploy/software-board.zip
 
-      deploy:
-        - provider: s3
-          access_key_id: $AWS_ACCESS_KEY
-          secret_access_key: $AWS_SECRET_KEY
-          bucket: software-board
-          region: ap-northeast-2
-          skip_cleanup: true
-          acl: private
-          local_dir: deploy
-          wait-until-deployed: true
+  deploy:
+    - provider: s3
+      access_key_id: $AWS_ACCESS_KEY
+      secret_access_key: $AWS_SECRET_KEY
+      bucket: software-board
+      region: ap-northeast-2
+      skip_cleanup: true
+      acl: private
+      local_dir: deploy
+      wait-until-deployed: true
 
-    notifications:
-      email:
-        recipients:
-          - jeaun80@gmail.com
+notifications:
+  email:
+    recipients:
+      - jeaun80@gmail.com
