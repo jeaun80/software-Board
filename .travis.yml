@@ -10,8 +10,8 @@ jobs:
       jdk: openjdk14
       cache:
         directories:
-          - $HOME/.gradle/caches/
-          - $HOME/.gradle/wrapper/
+          - '$HOME/.m2/repositroy'
+          - '$HOME/.gradle'
       install:
         - chmod +x gradlew
       script:
