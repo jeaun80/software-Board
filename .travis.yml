@@ -1,7 +1,8 @@
 language: java
-    branches:
-      only:
-        - main
+
+branches:
+  only:
+    - main
 
     jobs:
       include:
