@@ -1,45 +1,46 @@
----
+language: java
+
 branches:
   only:
-    - main
+  - main
+
 jobs:
-  before_deploy:
-    - "zip -r software-board *"
-    - "mkdir -p deploy"
-    - "mv software-board.zip deploy/software-board.zip"
-  deploy:
-    -
-      access_key_id: $AWS_ACCESS_KEY
-      acl: private
-      bucket: software-board
-      local_dir: deploy
-      provider: s3
-      region: ap-northeast-2
-      secret_access_key: $AWS_SECRET_KEY
-      skip_cleanup: true
-      wait-until-deployed: true
   include:
-    -
+    - language: java
+      jdk: openjdk14
       cache:
         directories:
-          - $HOME/.m2/repositroy
-          - $HOME/.gradle
+          - '$HOME/.m2/repositroy'
+          - '$HOME/.gradle'
       install:
-        - "chmod +x gradlew"
-      jdk: openjdk14
-      language: java
+        - chmod +x gradlew
       script:
-        - "./gradlew clean build"
-    -
-      before_script:
-        - "cd frontend"
-        - "npm install"
-      cache: npm
-      language: node_js
+        - ./gradlew clean build
+    - language: node_js
       node_js: 14
+      cache: npm
+      before_script:
+        - cd frontend
+        - npm install
       script:
-        - "npm run build"
-language: java
+        - npm run build
+before_deploy:
+  - zip -r software-board *
+  - mkdir -p deploy
+  - mv software-board.zip deploy/software-board.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: software-board
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
+    on:
+      branch: main
 notifications:
   email:
     recipients:
