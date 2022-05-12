@@ -18,7 +18,7 @@ import springfox.documentation.spring.web.plugins.Docket;
             return new Docket(DocumentationType.OAS_30)
                     .useDefaultResponseMessages(false)
                     .select()
-                    .apis(RequestHandlerSelectors.basePackage("com.velog.eunjy.controller"))
+                    .apis(RequestHandlerSelectors.basePackage("com.example.softwareboard.controller"))
                     .paths(PathSelectors.any())
                     .build()
                     .apiInfo(apiInfo());
