@@ -25,7 +25,6 @@ jobs:
       script:
         - npm run build
 before_deploy:
-  - zip -r software-board *
   - mkdir -p before-deploy
   - cp scripts/*.sh before-deploy/
   - cp appspec.yml before-deploy/
