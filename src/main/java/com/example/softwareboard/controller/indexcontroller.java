@@ -18,6 +18,6 @@ public class indexcontroller {
     @ApiResponses({
             @ApiResponse(code = 200, message = "OK~!!!!"), @ApiResponse(code = 404, message = "page not found!!!!!")
     })
-    @GetMapping("hello") public List<String> hello() { return Arrays.asList("안녕하세요", "Hello"); }
+    @GetMapping("hello") public List<String> hello() { return Arrays.asList("안녕", "Hello"); }
 
 }
