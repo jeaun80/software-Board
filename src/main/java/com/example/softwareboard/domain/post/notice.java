@@ -1,5 +1,7 @@
-package com.example.softwareboard.domain;
+package com.example.softwareboard.domain.post;
 
+import com.example.softwareboard.domain.user.member;
+import com.example.softwareboard.domain.secret_board;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

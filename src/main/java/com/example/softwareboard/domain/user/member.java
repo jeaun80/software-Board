@@ -1,10 +1,10 @@
-package com.example.softwareboard.domain;
+package com.example.softwareboard.domain.user;
 
+import com.example.softwareboard.domain.post.notice;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
 
 import java.util.ArrayList;
