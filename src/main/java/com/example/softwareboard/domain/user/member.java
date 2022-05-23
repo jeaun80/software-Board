@@ -1,6 +1,5 @@
 package com.example.softwareboard.domain.user;
 
-import com.example.softwareboard.domain.post.notice;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,7 +33,5 @@ public class member {
     @Column(nullable = false, length = 30)
     private String mem_name;
 
-    @OneToMany(mappedBy = "notice")
-    private List<notice> a = new ArrayList<>();
 
 }
