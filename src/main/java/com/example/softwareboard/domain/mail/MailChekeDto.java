@@ -1,15 +1,13 @@
 package com.example.softwareboard.domain.mail;
 
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @Builder
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class MailChekeDto {
 
     private String mail;
