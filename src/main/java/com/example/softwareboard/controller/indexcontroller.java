@@ -20,4 +20,11 @@ public class indexcontroller {
     })
     @GetMapping("/")
     public String index() { return "index"; }
+
+
+    //로그인페이지로 이동
+    @GetMapping("/auth/login")
+    public void mainlogin(){
+    }
+
 }

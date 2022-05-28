@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 function App() {
   const [message, setMessage] = useState([]);
   useEffect(() => {
-    fetch("/hello")
+    fetch("/")
         .then((response) => {
           return response.json();
         })
