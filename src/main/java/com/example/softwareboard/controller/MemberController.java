@@ -24,7 +24,7 @@ public class MemberController {
 
 
     //로그인
-    @PostMapping("/auth/user/loogin")
+    @GetMapping("/auth/user/loogin")
     public String login(){
         return "/";
     }
