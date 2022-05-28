@@ -13,7 +13,7 @@ import javax.persistence.Column;
 @AllArgsConstructor
 public class MailDto {
 
-    private String mail;
+    private String email;
     private String title;
     private String msg;
     private String key;

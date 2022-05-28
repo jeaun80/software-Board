@@ -37,16 +37,16 @@ class MailServicelpml implements MailService{
     //인증코드 난수 발생
     @Override
     public void setNum(String mail, String key) {
-        repository.save(Mail.builder().mail(mail).key(key).build());
+        repository.save(Mail.builder().email(mail).key(key).build());
     }
 
     @Override
     public void mailSend(MailDto mailDto) {
-        if(mailDto.getMail()==null){
+        if(mailDto.getEmail()==null){
 
         }
         SimpleMailMessage message = new SimpleMailMessage();
-        String email = mailDto.getMail();
+        String email = mailDto.getEmail();
         String authKey = getAuthCode(6);
 
         mailDto.setTitle("회원가입 인증번호 도착!");
@@ -63,7 +63,7 @@ class MailServicelpml implements MailService{
     }
     @Override
     public boolean EmailDuplicate(MailDto mailDto) {
-        Optional<Member> user=memberRepository.findByKnuemail(mailDto.getMail());
+        Optional<Member> user=memberRepository.findByKnuemail(mailDto.getEmail());
         if(user.isPresent()){
             return false;
         }
@@ -74,7 +74,7 @@ class MailServicelpml implements MailService{
 
     @Override
     public boolean checkNum(MailChekeDto mailchekeDto) {
-        Optional<Mail> res = repository.findById(mailchekeDto.getMail());
+        Optional<Mail> res = repository.findById(mailchekeDto.getEmail());
         if (res.isPresent()){
             Mail entity = res.get();
             if (entity.getKey().equals(mailchekeDto.getKey())) {

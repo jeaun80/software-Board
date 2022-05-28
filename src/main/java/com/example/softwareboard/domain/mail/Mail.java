@@ -18,7 +18,7 @@ import javax.persistence.Id;
 public class Mail {
 //연관관계를 아무것도 설정하지않는다. 저장하기위한 테이블이 아니라 인증할때 일시저장하기위한 테이블
     @Id
-    private String mail;
+    private String email;
     @Column(nullable = false)
     private String msg;
     private String key;

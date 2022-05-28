@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 public class MailChekeDto {
 
-    private String mail;
+    private String email;
     private String key;
 
 }
