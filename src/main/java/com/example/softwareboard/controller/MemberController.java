@@ -24,25 +24,25 @@ public class MemberController {
 
 
     //로그인
-    @PostMapping("/auth/user/login")
+    @PostMapping("/auth/user/loogin")
     public String login(){
         return "/";
     }
     //이메일중복검사
-    @PostMapping("/")
+    @PostMapping("/email/1")
     public boolean a(@RequestBody String requestmail){
         boolean duplicatemail = memberService.dupicateEmail(requestmail);
         return duplicatemail;
     }
 
     //메일전송
-    @PostMapping("/")
+    @PostMapping("/email/2")
     public void b(@RequestBody MailDto mailDto){
         mailService.mailSend(mailDto);
     }
 
     //메일 인증 키 같은지 검사
-    @PostMapping("//")
+    @PostMapping("/email/3")
     public boolean c(@RequestBody MailChekeDto mailChekeDto){
         if(mailService.checkNum(mailChekeDto)){
             return true;
@@ -54,7 +54,7 @@ public class MemberController {
     }
 
     //id중복검사
-    @PostMapping("///da")
+    @PostMapping("/email/4")
     public boolean d(@RequestBody String requstid){
         if(memberService.duplicateId(requstid)){
          return true;
@@ -65,7 +65,7 @@ public class MemberController {
     }
 
     //비밀번호 재발급
-    @PostMapping("dkfa")
+    @PostMapping("/email/5")
     public void e(@RequestBody FindMemberIdDto findMemberIdDto){
         mailService.mailSend(memberService.repassword(findMemberIdDto));
     }
@@ -73,7 +73,7 @@ public class MemberController {
 
 
     //id찾기
-    @PostMapping("/dka")
+    @PostMapping("/email/6")
     public void f(@RequestBody FindMemberIdDto findMemberIdDto){
         memberService.findId(findMemberIdDto);
     }
