@@ -16,5 +16,5 @@ public class MailDto {
     private String email;
     private String title;
     private String msg;
-    private String key;
+    private String sixkey;
 }

@@ -18,7 +18,7 @@ public interface MailService {
     default Mail dtoToEntity(MailDto dto) {
         Mail entity = Mail.builder()
                 .email(dto.getEmail())
-                .key(dto.getKey())
+                .sixkey(dto.getSixkey())
                 .build();
 
         return entity;
@@ -27,7 +27,7 @@ public interface MailService {
     default MailDto entityToDto(Mail entity){
         MailDto dto = MailDto.builder()
                 .email(entity.getEmail())
-                .key(entity.getKey())
+                .sixkey(entity.getSixkey())
                 .build();
         return dto;
     }

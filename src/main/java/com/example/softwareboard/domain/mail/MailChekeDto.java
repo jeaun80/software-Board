@@ -11,6 +11,6 @@ import lombok.*;
 public class MailChekeDto {
 
     private String email;
-    private String key;
+    private String sixkey;
 
 }

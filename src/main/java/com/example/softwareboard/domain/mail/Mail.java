@@ -21,7 +21,7 @@ public class Mail {
     private String email;
     @Column(nullable = false)
     private String msg;
-    private String key;
+    private String sixkey;
     private String title;
 
 }

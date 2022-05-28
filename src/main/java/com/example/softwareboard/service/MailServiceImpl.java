@@ -37,7 +37,7 @@ class MailServicelpml implements MailService{
     //인증코드 난수 발생
     @Override
     public void setNum(String mail, String key) {
-        repository.save(Mail.builder().email(mail).key(key).build());
+        repository.save(Mail.builder().email(mail).sixkey(key).build());
     }
 
     @Override
@@ -77,7 +77,7 @@ class MailServicelpml implements MailService{
         Optional<Mail> res = repository.findById(mailchekeDto.getEmail());
         if (res.isPresent()){
             Mail entity = res.get();
-            if (entity.getKey().equals(mailchekeDto.getKey())) {
+            if (entity.getSixkey().equals(mailchekeDto.getSixkey())) {
                 repository.delete(entity);
                 return true;
             }
