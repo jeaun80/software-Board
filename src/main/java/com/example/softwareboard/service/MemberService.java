@@ -75,8 +75,7 @@ public class MemberService {
             if(member.getName().equals(findMemberIdDto.getName())){
                 MailDto mailDto=null;
                 mailDto.builder()
-                    .email(findMemberIdDto
-                    .getKnuemail())
+                    .email(findMemberIdDto.getKnuemail())
                     .build();
                 if(mailDto.getEmail()==null){
                     return null;

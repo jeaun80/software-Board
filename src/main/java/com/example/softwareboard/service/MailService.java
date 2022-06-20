@@ -14,8 +14,11 @@ public interface MailService {
     String getAuthCode(int n);
     boolean checkNum(MailChekeDto mailchekeDto);
     boolean EmailDuplicate(MailDto mailDto);
+    void passwordsend(MailDto mailDto);
 
-    default Mail dtoToEntity(MailDto dto) {
+
+
+        default Mail dtoToEntity(MailDto dto) {
         Mail entity = Mail.builder()
                 .email(dto.getEmail())
                 .sixkey(dto.getSixkey())

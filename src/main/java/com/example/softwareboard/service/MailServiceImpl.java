@@ -59,7 +59,22 @@ class MailServicelpml implements MailService{
 
         mailSender.send(message);
         setNum(email, authKey);
+    }
+    @Override
+    public void passwordsend(MailDto mailDto){
+        SimpleMailMessage pwdmessage = new SimpleMailMessage();
+        String email = mailDto.getEmail();
+        String authKey = getAuthCode(6);
 
+        mailDto.setTitle("임시비밀번호 도착!");
+        mailDto.setMsg("아래의 번호는 임시비밀번호입니다.\n" + authKey + "\n");
+
+        pwdmessage.setTo(email);
+        pwdmessage.setFrom(MailServicelpml.FROM_ADDRESS);
+        pwdmessage.setSubject(mailDto.getTitle());
+        pwdmessage.setText(mailDto.getMsg());
+
+        mailSender.send(pwdmessage);
     }
     @Override
     public boolean EmailDuplicate(MailDto mailDto) {
