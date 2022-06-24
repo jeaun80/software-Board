@@ -1,8 +1,10 @@
-package com.example.softwareboard.domain.post;
+package com.example.softwareboard.domain;
 
 import com.example.softwareboard.BaseTimeEntity;
-import com.example.softwareboard.domain.comment.NotComment;
-import com.example.softwareboard.domain.user.member;
+import com.example.softwareboard.domain.NotComment;
+import com.example.softwareboard.domain.NotComment;
+import com.example.softwareboard.domain.user.Member;
+
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -42,17 +44,17 @@ public class Notice extends BaseTimeEntity {
     private String filePath;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mem_num")
-    private member mem_num;
+    @JoinColumn(name = "memnum")
+    private Member memnum;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "NotWriterId")
-    private member NotWriter;
+    private Member NotWriter;
 
     @OneToMany(mappedBy = "not", cascade = ALL, orphanRemoval = true)
     private List<NotComment> notCommentList = new ArrayList<>();
 
-    public void confirmNotWriter(member NotWriter){
+    public void confirmNotWriter(Member NotWriter){
         this.NotWriter = NotWriter;
         NotWriter.addNotice(this);
     }
@@ -75,5 +77,5 @@ public class Notice extends BaseTimeEntity {
     private void updateNotContent(String content) {this.content = content;}
 
     public void updateNotFilePath(String filePath) {this.filePath = filePath;}
-
 }
+
