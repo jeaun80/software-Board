@@ -1,18 +1,19 @@
 package com.example.softwareboard.domain.mail;
 
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import io.swagger.annotations.ApiParam;
+import lombok.*;
 
 @Data
 @Builder
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class MailChekeDto {
 
-    private String mail;
-    private String key;
+    @ApiParam(value = "이메일",required = true)
+    private String email;
+    @ApiParam(value = "인증번호")
+    private String sixkey;
 
 }
